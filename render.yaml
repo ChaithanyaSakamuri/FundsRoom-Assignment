@@ -8,8 +8,8 @@ services:
     region: singapore
     plan: free
     rootDir: backend
-    buildCommand: npm ci && npx prisma generate && npm run build
-    startCommand: npx prisma db push --accept-data-loss && npm run db:seed && npm start
+    buildCommand: npm install && npx prisma generate && npm run build
+    startCommand: npx prisma db push --accept-data-loss && npx prisma db seed && npm start
     envVars:
       - key: NODE_ENV
         value: production
@@ -29,7 +29,7 @@ services:
     name: nexora-frontend
     env: static
     rootDir: frontend
-    buildCommand: npm ci && npm run build
+    buildCommand: npm install && npm run build
     staticPublishPath: dist
     routes:
       - type: rewrite
