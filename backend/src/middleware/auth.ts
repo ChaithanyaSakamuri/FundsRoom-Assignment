@@ -5,14 +5,14 @@ import { AppError } from './errorHandler';
 
 export type Role = 'ADMIN' | 'SALES' | 'WAREHOUSE' | 'ACCOUNTS';
 
-export interface AuthRequest extends Request {
+export type AuthRequest = Request & {
   user?: {
     id: string;
     email: string;
     role: string;
     name: string;
   };
-}
+};
 
 export const authenticate = async (
   req: AuthRequest,
